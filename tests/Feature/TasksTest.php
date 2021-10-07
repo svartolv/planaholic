@@ -17,7 +17,7 @@ class TasksTest extends TestCase
     {
         $response = $this->get('/');
 
-        $response->dump();
+        // $response->dump(); //это для выдачи в терминал возвращаемого результата
 
         $response->assertStatus(302);
     }
