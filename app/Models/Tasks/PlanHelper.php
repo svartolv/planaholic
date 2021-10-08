@@ -4,7 +4,7 @@ namespace App\Models\Tasks;
 
 use Carbon\Carbon;
 
-class Plan
+class PlanHelper
 {
     /**
      * Возвращает приятное человеку наименование дня для заголовков страницы Плана на день.

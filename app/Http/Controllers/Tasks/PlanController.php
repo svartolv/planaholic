@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Tasks;
 
 use App\Http\Controllers\Controller;
-use App\Models\Tasks\Plan;
+use App\Models\Tasks\PlanHelper;
+use App\Models\Tasks\Task;
+use Carbon\Carbon;
 
 class PlanController extends Controller
 {
@@ -12,7 +14,7 @@ class PlanController extends Controller
      */
     public function index()
     {
-        $mainModel = new Plan;
+        $mainModel = new PlanHelper;
         $planDate = $mainModel->determinePlanDateStringName();
 
         return view('tasks.plan', [
