@@ -1,4 +1,4 @@
-<section> login block </section>
+<section> login and settings block </section>
 
 @yield('header')
 

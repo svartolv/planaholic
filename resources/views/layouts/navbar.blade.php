@@ -4,5 +4,5 @@
     <li><a href="{{ route('plan') }}">Отчёты</a></li>
     <li><a href="{{ route('plan') }}">Аналитика</a></li>
     <li><a href="{{ route('plan') }}">База знаний</a></li>
-    <li><a href="{{ route('plan') }}">Помощ</a></li>
+    <li><a href="{{ route('plan') }}">Помощь</a></li>
 </ul>

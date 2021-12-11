@@ -1,11 +1,7 @@
 @extends('layouts.main')
 
-@section('head')
-    План на {{ $planDate }}
-@endsection
-
 @section('header')
-    План на {{ $planDate }}
+    <h1>План на {{ $planDate }}</h1>
 @endsection
 
 @section('content')
