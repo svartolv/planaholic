@@ -14,14 +14,14 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return redirect('tasks');
+    return redirect('plan');
 });
 
 Route::group([
-    'prefix' => 'tasks',
-    'namespace' => 'Tasks'
+    'prefix' => 'plan',
+    'namespace' => 'Plan'
 ], function () {
-    Route::get('/', 'PlanController@index')->name('tasks'); //показать форму
+    Route::get('/', 'PlanController@index')->name('plan'); //показать форму
 });
 
 // Route::group([

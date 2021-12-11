@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Tasks;
+namespace App\Models\Plan;
 
 use Carbon\Carbon;
 

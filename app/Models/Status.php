@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Models\Tasks;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Type extends Model
+class Status extends Model
 {
     public $timestamps = false;
 }

@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Tasks;
+namespace App\Http\Controllers\Plan;
 
 use App\Http\Controllers\Controller;
-use App\Models\Tasks\PlanHelper;
-use App\Models\Tasks\Task;
-use Carbon\Carbon;
+use App\Models\Plan\Plan;
+use App\Models\Plan\PlanHelper;
 
 class PlanController extends Controller
 {
@@ -17,8 +16,11 @@ class PlanController extends Controller
         $mainModel = new PlanHelper;
         $planDate = $mainModel->determinePlanDateStringName();
 
+        $plan = Plan::all()->sortBy('order');
+
         return view('tasks.plan', [
-            'planDate' => $planDate
+            'planDate' => $planDate,
+            'plan' => $plan
         ]);
     }
 }
