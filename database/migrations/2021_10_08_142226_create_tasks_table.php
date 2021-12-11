@@ -19,6 +19,7 @@ class CreateTasksTable extends Migration
             $table->string('application')->nullable()->comment('Номер рабочей заявки');
             $table->string('type_id')->comment('Тип задачи');
             $table->string('status_id')->comment('Статус задачи');
+            $table->dateTime('planned_on')->nullable()->comment('Запланировано на');
             $table->dateTime('limitation')->nullable()->comment('Срок выполнения');
             $table->longText('done')->nullable()->comment('Что было сделано по задаче');
             $table->text('comment')->nullable()->comment('Комментарий ко всей заявке');
