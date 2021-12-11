@@ -21,7 +21,14 @@ Route::group([
     'prefix' => 'plan',
     'namespace' => 'Plan'
 ], function () {
-    Route::get('/', 'PlanController@index')->name('plan'); //показать форму
+    Route::get('/', 'PlanController@index')->name('plan'); //показать список
+});
+
+Route::group([
+    'prefix' => 'tasks',
+    'namespace' => 'Tasks'
+], function () {
+    Route::get('/', 'TasksController@index')->name('tasks'); //показать список
 });
 
 // Route::group([

@@ -10,6 +10,8 @@ class PlanController extends Controller
 {
     /**
      * Отображение плана задач на текущий день
+     *
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index()
     {
@@ -18,7 +20,7 @@ class PlanController extends Controller
 
         $plan = Plan::all()->sortBy('order');
 
-        return view('tasks.plan', [
+        return view('plan.plan', [
             'planDate' => $planDate,
             'plan' => $plan
         ]);

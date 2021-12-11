@@ -1,9 +1,9 @@
 <template>
-  <div>
-    <p>
-      <span>План задачег на {{ plan_date }}</span>
-    </p>
-  </div>
+<!--  <header>-->
+<!--    <p>-->
+<!--      <span>План задачег на {{ plan_date }}</span>-->
+<!--    </p>-->
+<!--  </header>-->
 </template>
 
 <script>
