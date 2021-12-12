@@ -15,7 +15,9 @@ class CreateSettingsTable extends Migration
     {
         Schema::create('settings', function (Blueprint $table) {
             $table->increments('id');
+            $table->bigInteger('user_id')->nulable()->comment('Id пользователя');
             $table->string('user_time_zone')->default('+3:00')->comment('Часовой пояс пользователя');
+            $table->date('user_time_zone')->nulable()->comment('Дата последнего формирования плана задач');
             $table->year('prophylaxis')->nullable()->comment('Год последней профилактики');
         });
     }
