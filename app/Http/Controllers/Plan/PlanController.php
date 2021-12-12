@@ -40,21 +40,11 @@ class PlanController extends Controller
         ]);
 
         $mainModel = new PlanProcessor;
-        $dateTitle = $mainModel->determinePlanDateStringName();
-        $plan = $mainModel->determinePlanDateStringName();
+        $mainModel->setPlanDate($request['plan_date']);
 
-
-//        $plan = Plan::all()->sortBy('order');
-
-        $data = [
-            'dateTitle' => $dateTitle,
-//            'planList' => $plan,
-            'planList' => [
-                0 => ['id' => 1, 'task_id' => 1, 'stage_id' => '', 'order' => 1],
-                1 => ['id' => 2, 'task_id' => 2, 'stage_id' => 1, 'order' => 2]
-            ]
+        return [
+            'dateTitle' => "План на {$mainModel->determinePlanDateStringName()}",
+            'planList' => $mainModel->getPlanList()
         ];
-
-        return $data;
     }
 }

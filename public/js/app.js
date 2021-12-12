@@ -1933,8 +1933,8 @@ __webpack_require__.r(__webpack_exports__);
       axios.post("/plan/list", {
         plan_date: this.planDate
       }).then(function (response) {
-        document.title = response.data.dateName;
-        document.getElementById('page-header').innerHTML = response.data.dateName;
+        document.title = response.data.dateTitle;
+        document.getElementById('page-header').innerHTML = response.data.dateTitle;
         _this.planList = response.data.planList;
       }); // доделать позже всплывалку под шапкой
       // .catch(e => {

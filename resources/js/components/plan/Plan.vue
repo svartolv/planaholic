@@ -23,8 +23,8 @@ export default {
         getPlanList() {
             axios.post(`/plan/list`, {plan_date: this.planDate})
                 .then(response => {
-                    document.title = response.data.dateName;
-                    document.getElementById('page-header').innerHTML = response.data.dateName;
+                    document.title = response.data.dateTitle;
+                    document.getElementById('page-header').innerHTML = response.data.dateTitle;
                     this.planList = response.data.planList;
                 })
                 // доделать позже всплывалку под шапкой

@@ -2,8 +2,9 @@
 
 namespace App\Models\Logic\Plan;
 
+use App\Models\Tables\Plan;
 use Carbon\Carbon;
-use function config;
+use Illuminate\Database\Eloquent\Collection;
 
 class PlanProcessor
 {
@@ -15,34 +16,31 @@ class PlanProcessor
     /**
      * Задаёт дату запланированных задач классу
      *
-     * @param $planDate
+     * @param string $planDate
      * @return void
      */
     public function setPlanDate($planDate = "")
     {
-        $this->planDate = $planDate;
+        $objectPlanDate = Carbon::parse($planDate);
+        $textPlanDate = $objectPlanDate->format('d.m.Y');
+
+        $this->planDate = $textPlanDate;
+
+        return;
     }
 
     /**
      * Возвращает понятное и приятное человеку наименование дня для заголовков страницы Плана на день.
      *
-     * @param string $planDate Дата интересующего дня
-     *
      * @return string Наименование дня.
      */
-    public function determinePlanDateStringName(string $planDate = ''): string
+    public function determinePlanDateStringName(): string
     {
         $result = 'сегодня';
 
-        $this->planDate = $planDate;
-
         $nowDate = Carbon::now();
-        $objectPlanDate = Carbon::parse($planDate);
+        $objectPlanDate = Carbon::parse($this->planDate);
         $textPlanDate = $objectPlanDate->format('d.m.Y');
-
-        if ($textPlanDate > $nowDate->format('d.m.Y')) {
-            $result = $textPlanDate . ', ' . $objectPlanDate->locale(config('app.locale'))->dayName;
-        }
 
         //Внимание! addDay() изменяет значение $nowDate
         if ($textPlanDate == $nowDate->addDay()->format('d.m.Y')) {
@@ -50,9 +48,29 @@ class PlanProcessor
         }
 
         if ($textPlanDate == $nowDate->addDay()->format('d.m.Y')) {
-            $result = 'послезавтра, ' . $objectPlanDate->locale(config('app.locale'))->dayName;
+            $result = 'послезавтра (' . $objectPlanDate->locale(config('app.locale'))->dayName . ')';
+        }
+
+        if ($textPlanDate > $nowDate->format('d.m.Y')) {
+            $result = $textPlanDate . ' (' . $objectPlanDate->locale(config('app.locale'))->dayName . ')';
         }
 
         return $result;
+    }
+
+    /**
+     * Получить список запланированных задач
+     *
+     * @return Plan[]|Collection
+     */
+    public function getPlanList()
+    {
+        /* ToDo
+        Тут будет дополнительная обработка: подгрузка и конкатенация этапов, выполненного и разделение по пользователям,
+        десериализация. возможно, формирование и передача ошибок.
+        */
+        $plan = Plan::all()->sortBy('order');
+
+        return $plan;
     }
 }
