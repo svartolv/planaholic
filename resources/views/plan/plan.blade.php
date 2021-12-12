@@ -1,9 +1,9 @@
 @extends('layouts.main')
 
 @section('header')
-    <h1>План на {{ $planDate }}</h1>
+    <h1 id="page-header"></h1>
 @endsection
 
 @section('content')
-    <plan :plan_date="'{{ $planDate }}'"></plan>
+    <plan></plan>
 @endsection

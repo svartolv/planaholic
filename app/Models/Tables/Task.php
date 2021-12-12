@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Tasks;
+namespace App\Models\Tables;
 
 use Illuminate\Database\Eloquent\Model;
 

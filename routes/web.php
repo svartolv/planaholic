@@ -21,7 +21,8 @@ Route::group([
     'prefix' => 'plan',
     'namespace' => 'Plan'
 ], function () {
-    Route::get('/', 'PlanController@index')->name('plan'); //показать список
+    Route::get('/', 'PlanController@index')->name('plan'); //показать страницу
+    Route::post('/list', 'PlanController@getList')->name('plan.list'); //получить данные
 });
 
 Route::group([

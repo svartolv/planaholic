@@ -1912,14 +1912,35 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['plan_date'],
-  mounted: function mounted() {
-    console.log(this.plan_date);
+  data: function data() {
+    return {
+      planList: [],
+      planDate: ''
+    };
+  },
+  created: function created() {
+    this.getPlanList();
+  },
+  mounted: function mounted() {//тут вызываются методы после монтирования
+  },
+  computed: {//тут вычисляемые свойства
+  },
+  methods: {
+    getPlanList: function getPlanList() {
+      var _this = this;
+
+      axios.post("/plan/list", {
+        plan_date: this.planDate
+      }).then(function (response) {
+        document.title = response.data.dateName;
+        document.getElementById('page-header').innerHTML = response.data.dateName;
+        _this.planList = response.data.planList;
+      }); // доделать позже всплывалку под шапкой
+      // .catch(e => {
+      //     Flash.setSuccess('Ошибка в получении данных!')
+      // })
+    }
   }
 });
 

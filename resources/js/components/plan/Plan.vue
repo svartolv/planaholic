@@ -1,18 +1,37 @@
 <template>
-<!--  <header>-->
-<!--    <p>-->
-<!--      <span>План задачег на {{ plan_date }}</span>-->
-<!--    </p>-->
-<!--  </header>-->
+
 </template>
 
 <script>
-  export default {
-    props: [
-      'plan_date',
-    ],
+export default {
+    data() {
+        return {
+            planList: [],
+            planDate: '',
+        }
+    },
+    created() {
+        this.getPlanList();
+    },
     mounted() {
-      console.log(this.plan_date)
+        //тут вызываются методы после монтирования
+    },
+    computed: {
+        //тут вычисляемые свойства
+    },
+    methods: {
+        getPlanList() {
+            axios.post(`/plan/list`, {plan_date: this.planDate})
+                .then(response => {
+                    document.title = response.data.dateName;
+                    document.getElementById('page-header').innerHTML = response.data.dateName;
+                    this.planList = response.data.planList;
+                })
+                // доделать позже всплывалку под шапкой
+                // .catch(e => {
+                //     Flash.setSuccess('Ошибка в получении данных!')
+                // })
+        },
     }
-  }
+}
 </script>
