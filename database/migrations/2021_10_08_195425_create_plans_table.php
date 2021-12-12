@@ -16,7 +16,7 @@ class CreatePlansTable extends Migration
         Schema::create('plans', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('task_id')->comment('Id задачи');
-            $table->bigInteger('stage_id')->comment('Id этапа');
+            $table->bigInteger('stage_id')->nullable()->comment('Id этапа');
             $table->integer('order')->comment('Порядок следования задач и этапов');
         });
     }
