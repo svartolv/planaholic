@@ -17,7 +17,7 @@ class CreateSettingsTable extends Migration
             $table->increments('id');
             $table->bigInteger('user_id')->nulable()->comment('Id пользователя');
             $table->string('user_time_zone')->default('+3:00')->comment('Часовой пояс пользователя');
-            $table->date('user_time_zone')->nulable()->comment('Дата последнего формирования плана задач');
+            $table->date('last_plan_date')->nulable()->comment('Дата последнего формирования плана задач');
             $table->year('prophylaxis')->nullable()->comment('Год последней профилактики');
         });
     }
