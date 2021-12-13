@@ -10962,3 +10962,21 @@ a.text-dark:focus {
   }
 }
 
+body {
+  max-width: 100%;
+}
+
+#authorisation-block {
+  display: block;
+  /*ToDo удалить свойство для многопользовательской версии */
+}
+
+#controls-block {
+  text-align: right;
+}
+
+#authorisation-block,
+#settings-block {
+  display: inline-block;
+}
+

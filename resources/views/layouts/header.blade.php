@@ -1,5 +1,9 @@
-@include('layouts.controls')
+<header>
+    <div id="controls-bar">
+        @include('layouts.controls')
+    </div>
 
-@yield('header')
+    @yield('header')
 
-@include('layouts.navbar')
+    @include('layouts.navbar')
+</header>

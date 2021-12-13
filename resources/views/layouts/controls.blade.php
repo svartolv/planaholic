@@ -1,9 +1,19 @@
 <div id="controls-block">
-    <div id="authorisation-block">
-        <span id="sign-in">Sign In</span>
-        <span id="login">Login</span>
-        <span id="logout">Logout</span>
-        <span id="profile">Profile</span>
-    </div>
-    <span id="settings-block">Settings</span>
+    @if (Route::has('login'))
+        <div id="authorisation-block">
+            <ul>
+                @auth()
+                    <li id="logout">Logout</li>
+                    <li id="profile">Profile</li>
+                @else
+                    @if (Route::has('register'))
+                        <li id="sign-in">Sign In</li>
+                        <li>or</li>
+                    @endif
+                    <li id="login">Login</li>
+                @endauth
+            </ul>
+        </div>
+    @endif
+    <div id="settings-block">Settings</div>
 </div>
