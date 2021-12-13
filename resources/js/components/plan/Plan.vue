@@ -1,5 +1,16 @@
 <template>
-
+    <table>
+        <tr>
+            <th></th>
+        </tr>
+        <tr v-for="(plan, index) in planList">
+            <td>{{ index }}</td>
+            <td>{{ plan['id'] }}</td>
+            <td>{{ plan['order'] }}</td>
+            <td>{{ plan['stage_id'] }}</td>
+            <td>{{ plan['task_id'] }}</td>
+        </tr>
+    </table>
 </template>
 
 <script>

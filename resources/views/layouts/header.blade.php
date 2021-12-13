@@ -1,4 +1,4 @@
-<section> login and settings block </section>
+@include('layouts.controls')
 
 @yield('header')
 
